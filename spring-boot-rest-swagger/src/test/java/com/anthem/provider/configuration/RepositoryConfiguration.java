@@ -1,4 +1,4 @@
-package guru.springframework.configuration;
+package com.anthem.provider.configuration;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableAutoConfiguration
-@EntityScan(basePackages = {"guru.springframework.domain"})
-@EnableJpaRepositories(basePackages = {"guru.springframework.repositories"})
+@EntityScan(basePackages = {"com.anthem.provider.domain"})
+@EnableJpaRepositories(basePackages = {"com.anthem.provider.repositories"})
 @EnableTransactionManagement
 public class RepositoryConfiguration {
 }

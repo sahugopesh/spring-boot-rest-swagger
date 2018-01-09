@@ -1,6 +1,4 @@
-package guru.springframework.repositories;
-
-import guru.springframework.configuration.RepositoryConfiguration;
+package com.anthem.provider.repositories;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.anthem.provider.configuration.RepositoryConfiguration;
 import com.anthem.provider.domain.Product;
 import com.anthem.provider.repositories.ProductRepository;
 
