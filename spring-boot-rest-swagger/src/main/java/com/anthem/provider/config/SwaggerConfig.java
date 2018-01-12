@@ -18,14 +18,14 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.anthem.provider.controllers"))
-                .paths(regex("/product.*"))
+                .paths(regex("/api/v1.*"))
                 .build()
                 .apiInfo(metaData());
     }
     private ApiInfo metaData() {
         ApiInfo apiInfo = new ApiInfo(
                 "Anthem Provider API",
-                "Anthem Provider API for Member",
+                "Anthem Provider API for Modernize Migration",
                 "1.0",
                 "Terms of service",
                 new Contact("Gopesh Sahu", "", "gopesh.sahu@anthem.com"),

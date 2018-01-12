@@ -19,8 +19,8 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @RestController
-@RequestMapping("/product")
-@Api(value="product", description="Anthem Provider api for product")
+@RequestMapping("/api/v1")
+@Api(tags = { " Product API for sample example " }, hidden = true)
 public class ProductController {
 
     private ProductService productService;
@@ -38,20 +38,20 @@ public class ProductController {
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     }
     )
-    @RequestMapping(value = "/list", method= RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/product", method= RequestMethod.GET, produces = "application/json")
     public Iterable<Product> list(Model model){
         Iterable<Product> productList = productService.listAllProducts();
         return productList;
     }
     @ApiOperation(value = "Search a product with an ID",response = Product.class)
-    @RequestMapping(value = "/show/{id}", method= RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/product/{id}", method= RequestMethod.GET, produces = "application/json")
     public Product showProduct(@PathVariable Integer id, Model model){
        Product product = productService.getProductById(id);
         return product;
     }
 
     @ApiOperation(value = "Add a product")
-    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/product", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity saveProduct(@RequestBody Product product){
         
     	productService.saveProduct(product);
@@ -60,7 +60,7 @@ public class ProductController {
     }
 
     @ApiOperation(value = "Update a product")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT, produces = "application/json")
+    @RequestMapping(value = "/product/{id}", method = RequestMethod.PUT, produces = "application/json")
     public ResponseEntity updateProduct(@PathVariable Integer id, @RequestBody Product product){
         Product storedProduct = productService.getProductById(id);
         storedProduct.setDescription(product.getDescription());
