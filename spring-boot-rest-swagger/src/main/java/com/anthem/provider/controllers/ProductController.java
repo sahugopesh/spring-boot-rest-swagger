@@ -18,8 +18,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@RestController
-@RequestMapping("/api/v1")
+//Disabled below product REST. Uncomment below annotation if want to see all operations POST,PUT,GET,DELETE  
+//@RestController
+//@RequestMapping("/api/v1")
 @Api(tags = { " Product API for sample example " }, hidden = true)
 public class ProductController {
 
@@ -71,7 +72,7 @@ public class ProductController {
     }
 
     @ApiOperation(value = "Delete a product")
-    @RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
+    @RequestMapping(value="/product/{id}", method = RequestMethod.DELETE, produces = "application/json")
     public ResponseEntity delete(@PathVariable Integer id){
         productService.deleteProduct(id);
         return new ResponseEntity("Product deleted successfully", HttpStatus.OK);
